@@ -3,7 +3,7 @@ import illustration from "../../../assets/home/illustration-charts.svg";
 
 function Hero() {
   return (
-    <section className="flex flex-col items-center justify-between md:flex-row-reverse">
+    <div className="flex flex-col items-center justify-between md:flex-row-reverse">
       {/* illustration */}
       <div className="max-w-[171px] md:max-w-[281px] lg:max-w-[475px]">
         <img src={illustration} alt="illustration charts" className="w-full" />
@@ -27,7 +27,7 @@ function Hero() {
         </Button>
       </div>
       {/* content */}
-    </section>
+    </div>
   );
 }
 export default Hero;

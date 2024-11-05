@@ -9,7 +9,7 @@ function Button({
 }) {
   return (
     <button
-      className={`${shadow ? "shadow-button" : ""} ${opacity ? "bg-opacity-[0.1526]" : ""} ${px} ${py} text-center text-base font-bold leading-7 ${className} rounded-[28px] transition-colors`}
+      className={`${shadow ? "shadow-button" : ""} ${opacity ? "bg-opacity-[0.1526]" : ""} ${px} ${py} text-center text-base font-bold leading-7 ${className} rounded-[28px] transition-all`}
       type={type}
     >
       {children}
