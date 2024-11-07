@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const options = {
   year: "numeric",
@@ -6,28 +6,30 @@ const options = {
   day: "numeric",
 };
 function Countdown() {
-  const now = useMemo(() => new Date());
+  const now = new Date();
 
-  const countDownDate = useMemo(
-    () => new Date(now.getFullYear(), now.getMonth() + 3, now.getDate()),
-    [now],
+  const countDownDate = new Date(
+    now.getFullYear(),
+    now.getMonth() + 3,
+    now.getDate(),
   );
-  const [remainingTime, setRemainingTime] = useState(
-    countDownDate.getTime() - now.getTime(),
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRemainingTime(countDownDate.getTime() - now.getTime());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [countDownDate, now]);
 
   const formattedCountDownDate = countDownDate.toLocaleDateString(
     undefined,
     options,
   );
+
+  const [remainingTime, setRemainingTime] = useState(
+    countDownDate.getTime() - now.getTime(),
+  );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setRemainingTime(countDownDate.getTime() - now.getTime());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  });
 
   const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
@@ -39,8 +41,7 @@ function Countdown() {
   return (
     <div>
       <h2 className="mb-4 text-center font-bold uppercase leading-[48px] tracking-[5px] text-white lg:text-left">
-        Coming
-        <span className="text-#5175FF">{formattedCountDownDate}</span>
+        Coming <span className="text-#5175FF">{formattedCountDownDate}</span>
       </h2>
 
       <div className="grid w-[328px] grid-cols-4 gap-4 text-center font-bold text-white md:w-[448px]">

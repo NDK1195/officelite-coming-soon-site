@@ -34,7 +34,7 @@ function PackageList() {
       {/* package */}
       <div className="lg:px relative overflow-hidden rounded-[13px] bg-#5175FF py-10 text-center shadow-box md:py-12 md:pl-12 md:pr-[100px] md:text-left lg:px-0 lg:py-10 lg:text-center">
         {/* background */}
-        <div className="absolute -top-[379px] left-1/2 w-[880px] -translate-x-1/2 md:-left-[319px] md:-top-[282px] md:translate-x-0 lg:-top-[379px] lg:left-1/2 lg:-translate-x-1/2">
+        <div className="absolute -top-[379px] left-1/2 z-10 w-[880px] -translate-x-1/2 md:-left-[319px] md:-top-[282px] md:translate-x-0 lg:-top-[379px] lg:left-1/2 lg:-translate-x-1/2">
           <img src={bgPatternPricing} alt="background pattern" />
         </div>
         {/* background */}
@@ -54,7 +54,7 @@ function PackageList() {
           </div>
         </div>
 
-        <Button className="bg-white text-#5175FF hover:text-#829CFF md:mt-6 lg:mt-0">
+        <Button className="relative z-20 bg-white text-#5175FF hover:text-#829CFF md:mt-6 lg:mt-0">
           Try for Free
         </Button>
       </div>
