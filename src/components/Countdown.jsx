@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 
-const options = {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-};
 function Countdown() {
   const now = new Date();
 
@@ -14,14 +9,22 @@ function Countdown() {
     now.getDate(),
   );
 
-  const formattedCountDownDate = countDownDate.toLocaleDateString(
-    undefined,
-    options,
-  );
+  const formattedCountDownDate = countDownDate.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   const [remainingTime, setRemainingTime] = useState(
     countDownDate.getTime() - now.getTime(),
   );
+
+  const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+  );
+  const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -30,13 +33,6 @@ function Countdown() {
 
     return () => clearInterval(intervalId);
   });
-
-  const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-  );
-  const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
   return (
     <div>

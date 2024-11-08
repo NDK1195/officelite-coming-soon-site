@@ -22,7 +22,7 @@ function Header() {
         {/* logo */}
 
         {/* hero */}
-        <section className="mb-[100px] md:mb-[140px] lg:mb-[184px]">
+        <section>
           <Hero />
         </section>
         {/* hero */}

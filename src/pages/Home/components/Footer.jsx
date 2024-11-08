@@ -17,7 +17,7 @@ function Footer() {
         {/* background pattern */}
 
         {/* package list */}
-        <section className="fixed -top-[794px] left-1/2 w-full max-w-[1110px] -translate-x-1/2 overflow-visible px-6 md:-top-[498px] md:px-10 lg:-top-[254px] xl:px-0">
+        <section className="fixed -top-[794px] left-1/2 z-20 w-full max-w-[1110px] -translate-x-1/2 overflow-visible px-6 md:-top-[498px] md:px-10 lg:-top-[254px] xl:px-0">
           <PackageList />
         </section>
         {/* package list */}
