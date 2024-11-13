@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import bgPatternHeader from "../../../assets/home/bg-pattern-header.svg";
 import logo from "../../../assets/shared/logo.svg";
 import Container from "../../../components/Container";
 import Countdown from "../../../components/Countdown";
 function Header() {
   return (
-    <header className="relative overflow-hidden bg-[#fafafa] pb-[296px] md:pb-[358px] lg:pb-0">
+    <header className="relative overflow-hidden bg-[#fafafa] pb-[296px] md:pb-[358px] xl:pb-0">
       {/* background pattern */}
       <img
         src={bgPatternHeader}
@@ -15,7 +16,9 @@ function Header() {
       <Container className="xl:pl-[165px]">
         {/* logo */}
         <section className="mb-20 mt-11 flex justify-center md:mb-[104px] md:mt-[72px] md:justify-start xl:mt-[154px]">
-          <img src={logo} alt="logo" className="w-[100px] md:w-[155px]" />
+          <Link to="/">
+            <img src={logo} alt="logo" className="w-[100px] md:w-[155px]" />
+          </Link>
         </section>
         {/* logo */}
 
