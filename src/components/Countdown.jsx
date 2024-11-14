@@ -6,23 +6,17 @@ function Countdown({
   countDownBackground,
   countDownTextColor,
 }) {
-  const now = new Date();
-
-  const countDownDate = new Date(
-    now.getFullYear(),
-    now.getMonth() + 3,
-    now.getDate(),
-  );
-
-  const formattedCountDownDate = countDownDate.toLocaleDateString(undefined, {
+  const formattedCountDownDate = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth() + 3,
+    new Date().getDate(),
+  ).toLocaleDateString(undefined, {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
 
-  const [remainingTime, setRemainingTime] = useState(
-    countDownDate.getTime() - now.getTime(),
-  );
+  const [remainingTime, setRemainingTime] = useState(null);
 
   const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
@@ -32,6 +26,14 @@ function Countdown({
   const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
   useEffect(() => {
+    const now = new Date();
+
+    const countDownDate = new Date(
+      now.getFullYear(),
+      now.getMonth() + 3,
+      now.getDate(),
+    );
+
     const intervalId = setInterval(() => {
       setRemainingTime(countDownDate.getTime() - now.getTime());
     }, 1000);
